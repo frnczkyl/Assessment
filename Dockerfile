@@ -19,9 +19,13 @@ RUN DATABASE_URL="file:/tmp/build.db" npm run build
 
 ENV NODE_ENV=production
 ENV PORT=3000
+
+# Default DB location points at the mounted persistent volume (/data). The host
+# can still override DATABASE_URL; this default just guarantees the container
+# boots and persists even if the variable wasn't set in the dashboard.
+ENV DATABASE_URL="file:/data/prod.db"
+
 EXPOSE 3000
 
 # On boot: apply migrations, ensure demo data exists (idempotent seed), then start.
-# DATABASE_URL should point at a file on the mounted volume, e.g.
-#   DATABASE_URL="file:/data/prod.db"
 CMD ["sh", "-c", "npx prisma migrate deploy && npm run db:seed && npm start"]
