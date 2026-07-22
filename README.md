@@ -4,6 +4,9 @@ A lightweight collaborative document editor — inspired by Google Docs, built f
 
 Create rich-text documents in the browser, import files into new drafts, and share documents with teammates as **viewers** or **editors**. Everything persists to a local SQLite database, so it runs with zero external services.
 
+**🔗 Live demo:** https://assessment--production.up.railway.app/login &nbsp;·&nbsp; **🎬 Walkthrough:** https://youtu.be/c9bq0UMudDI
+**Demo login:** `alice@ajaia.dev` / `password123` (also `bob@ajaia.dev`, `carol@ajaia.dev`)
+
 > **Scope note:** This is a deliberately focused product slice, not a Google Docs clone. Depth was prioritized in three areas — the **editing experience**, **file import**, and the **sharing / access model**. See [ARCHITECTURE.md](./ARCHITECTURE.md) for what was intentionally cut and why.
 
 ---

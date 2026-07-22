@@ -7,18 +7,18 @@
 
 ## Live product URL
 
-> **_[ TODO: paste your deployed URL here before submitting ]_**
->
-> Recommended free host: Render / Railway / Fly.io (persistent disk for SQLite),
-> or Vercel + a free Turso/libSQL `DATABASE_URL`. See
-> [ARCHITECTURE.md → Deployment](./ARCHITECTURE.md#deployment).
+**🔗 https://assessment--production.up.railway.app/login**
 
-**Demo login:** `alice@ajaia.dev` / `password123` (also `bob@` and `carol@`).
+Deployed on Railway (Docker + SQLite on a persistent volume). See
+[ARCHITECTURE.md → Deployment](./ARCHITECTURE.md#deployment).
+
+**Demo login:** `alice@ajaia.dev` / `password123` (also `bob@ajaia.dev` and `carol@ajaia.dev`).
 
 ## Walkthrough video
 
-> **_[ TODO: paste your unlisted Loom/YouTube link here ]_**
-> (Also saved in [`WALKTHROUGH.txt`](./WALKTHROUGH.txt).)
+**🎬 https://youtu.be/c9bq0UMudDI**
+
+(Also saved in [`WALKTHROUGH.txt`](./WALKTHROUGH.txt).)
 
 ---
 
@@ -44,7 +44,7 @@
 | Sharing: owner + grant access + owned/shared distinction | ✅ | Viewer/Editor roles, server-enforced |
 | Persistence (survives refresh; structure preserved)    | ✅ | SQLite via Prisma |
 | Setup & run instructions                               | ✅ | README |
-| Live deployment                                        | ⏳ | URL above once deployed |
+| Live deployment                                        | ✅ | https://assessment--production.up.railway.app/login |
 | Validation & error handling                            | ✅ | `zod` + sanitization + typed error responses |
 | ≥1 meaningful automated test                           | ✅ | 15 tests over auth + import/sanitization |
 | Architecture note                                      | ✅ | ARCHITECTURE.md |

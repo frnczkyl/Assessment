@@ -1,5 +1,7 @@
 # AI Workflow Note
 
+**Live demo:** https://assessment--production.up.railway.app/login · **Walkthrough:** https://youtu.be/c9bq0UMudDI
+
 This is an AI-forward role, so I used AI deliberately — as a fast pair-programmer and reviewer — while keeping architecture, security, and product-scope decisions my own.
 
 ## Tools used

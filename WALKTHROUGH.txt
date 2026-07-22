@@ -1,7 +1,9 @@
 Ajaia Docs — Walkthrough video
 ================================
 
-[ TODO: paste your unlisted Loom or YouTube link here before submitting ]
+Walkthrough video:  https://youtu.be/c9bq0UMudDI
+Live product URL:    https://assessment--production.up.railway.app/login
+Demo login:          alice@ajaia.dev / password123
 
 Suggested 3–5 minute outline:
   1. Sign in as Alice; show the dashboard (My documents vs Shared with me).

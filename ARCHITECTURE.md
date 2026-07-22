@@ -1,5 +1,7 @@
 # Architecture Note
 
+**Live demo:** https://assessment--production.up.railway.app/login · **Walkthrough:** https://youtu.be/c9bq0UMudDI
+
 ## The bet: depth in three areas, not breadth everywhere
 
 The prompt is open-ended enough that I could have spread effort thin across a dozen half-working Google Docs features. Instead I picked the three surfaces that best demonstrate full-stack judgment and went deep on them:
