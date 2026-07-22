@@ -87,7 +87,7 @@ A production version would swap `session.ts` for NextAuth or a real IdP with sho
 
 ## Deployment
 
-**Recommended free path:** any host with a small persistent disk — **Render**, **Railway**, or **Fly.io** — since the app uses file-based SQLite. `npm run build` runs `prisma migrate deploy` automatically, and the first boot can be seeded with `npm run db:seed`. No paid dependency or service is required for reviewers to run or review it.
+**Recommended path:** any host with a small persistent disk — **Railway**, **Fly.io**, or **Render** — since the app uses file-based SQLite. Migrations and seeding run at **container startup** (Dockerfile `CMD`: `prisma migrate deploy && npm run db:seed && npm start`), not during the image build, so the build never needs a live database. The host must provide `DATABASE_URL` (pointing at a file on the mounted volume, e.g. `file:/data/prod.db`) and `SESSION_SECRET`. Reviewers only visit the URL, so no paid dependency is required to review it.
 
 **The SQLite tradeoff, stated honestly:** on an *ephemeral* filesystem (e.g. Vercel's serverless functions), a SQLite file doesn't persist across deploys/cold starts. Two clean options: (a) deploy to a host with a persistent volume (above), or (b) point `DATABASE_URL` at a hosted libSQL/Turso free tier — Prisma speaks the same SQLite dialect, so **no code changes** are needed, only the connection string. I chose local SQLite because it makes the project trivially runnable for reviewers, which the prompt weights heavily.
 

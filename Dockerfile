@@ -11,9 +11,11 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
 
-# Copy the rest and build.
+# Copy the rest and build. The build never touches the database, but Prisma
+# still wants DATABASE_URL to be defined — pass a throwaway value that only
+# exists for this build step (the real one is injected at runtime by the host).
 COPY . .
-RUN npx prisma generate && npm run build
+RUN DATABASE_URL="file:/tmp/build.db" npm run build
 
 ENV NODE_ENV=production
 ENV PORT=3000

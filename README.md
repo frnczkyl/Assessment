@@ -53,9 +53,12 @@ Open **http://localhost:3000** and sign in with a demo account below.
 ### Production build
 
 ```bash
-npm run build     # runs prisma generate + migrate deploy + next build
+npx prisma migrate deploy   # apply migrations to the target database
+npm run build               # prisma generate + next build
 npm start
 ```
+
+> Migrations are applied with `prisma migrate deploy` (a separate step, not part of the build) so the build never needs a live database. In Docker/Railway this runs automatically at container startup via the Dockerfile `CMD`.
 
 ---
 
@@ -97,7 +100,7 @@ Covers the two pieces of pure logic most worth protecting: the **access-control 
 | Script              | Purpose                                    |
 | ------------------- | ------------------------------------------ |
 | `npm run dev`       | Start the dev server                       |
-| `npm run build`     | Generate client, apply migrations, build   |
+| `npm run build`     | Generate Prisma client + Next.js build     |
 | `npm start`         | Start the production server                |
 | `npm test`          | Run the Vitest suite                       |
 | `npm run db:seed`   | Seed / re-seed demo data (idempotent)      |
