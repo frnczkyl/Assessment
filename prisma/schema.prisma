@@ -1,0 +1,53 @@
+// Prisma schema for Ajaia Docs — a lightweight collaborative document editor.
+// Datasource is SQLite so the project runs with zero external services.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  password  String // bcrypt hash
+  createdAt DateTime @default(now())
+
+  documents Document[] @relation("OwnedDocuments")
+  shares    Share[]
+}
+
+model Document {
+  id        String   @id @default(cuid())
+  title     String   @default("Untitled document")
+  // Rich-text content stored as sanitized HTML produced by the editor.
+  content   String   @default("")
+  ownerId   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  owner  User    @relation("OwnedDocuments", fields: [ownerId], references: [id], onDelete: Cascade)
+  shares Share[]
+
+  @@index([ownerId])
+}
+
+// A Share grants one user access to a document with a given role.
+model Share {
+  id         String   @id @default(cuid())
+  documentId String
+  userId     String
+  role       String   @default("editor") // "viewer" | "editor"
+  createdAt  DateTime @default(now())
+
+  document Document @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // A user can only be shared a given document once.
+  @@unique([documentId, userId])
+  @@index([userId])
+}

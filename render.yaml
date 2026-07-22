@@ -1,0 +1,18 @@
+# Render Blueprint — one-click-ish deploy.
+# In Render: New > Blueprint > point at this repo. A persistent disk keeps the
+# SQLite database across deploys.
+services:
+  - type: web
+    name: ajaia-docs
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: starter # smallest plan that supports a persistent disk
+    envVars:
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: DATABASE_URL
+        value: file:/data/prod.db
+    disk:
+      name: ajaia-data
+      mountPath: /data
+      sizeGB: 1

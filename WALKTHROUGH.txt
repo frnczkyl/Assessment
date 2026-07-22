@@ -1,0 +1,13 @@
+Ajaia Docs — Walkthrough video
+================================
+
+[ TODO: paste your unlisted Loom or YouTube link here before submitting ]
+
+Suggested 3–5 minute outline:
+  1. Sign in as Alice; show the dashboard (My documents vs Shared with me).
+  2. Create a new doc; demonstrate rich-text formatting + autosave; rename it.
+  3. Import a .md or .docx file -> becomes a new editable, formatted document.
+  4. Share the doc with Bob as "Viewer".
+  5. Sign in as Bob: doc appears under "Shared with me"; editor is view-only.
+  6. (Optional) Change Bob to "Editor" and show he can now edit.
+  7. Note intentional scope cuts (real-time co-editing, full auth) and how AI helped.
